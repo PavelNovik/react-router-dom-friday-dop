@@ -9,14 +9,15 @@ type PropsType = {
 const Page: React.FC<PropsType> = ({pages}) => {
     const params = useParams()
     const location = useLocation()
-    // console.log(location)
+    console.log(location)
+
     return (
         <div>
             {location.pathname==='/page/0' && <div>SECRET TEXT</div>}
             {pages[Number(params.id)] ? <div>
                 {pages[Number(params.id)].heading}
                 {pages[Number(params.id)].about}
-            </div> : <Error404/>}
+            </div> : <Error404/> }
 
         </div>
     );
