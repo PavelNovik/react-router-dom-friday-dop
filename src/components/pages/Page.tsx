@@ -1,6 +1,6 @@
 import React from 'react';
 import {PagesType} from "../../data/dataState";
-import {useLocation, useParams} from "react-router-dom";
+import {Navigate, useLocation, useParams} from "react-router-dom";
 import {Error404} from "./Error404";
 
 type PropsType = {
@@ -9,15 +9,21 @@ type PropsType = {
 const Page: React.FC<PropsType> = ({pages}) => {
     const params = useParams()
     const location = useLocation()
-    console.log(location)
+    // console.log(location)
 
     return (
         <div>
-            {location.pathname==='/page/0' && <div>SECRET TEXT</div>}
-            {pages[Number(params.id)] ? <div>
-                {pages[Number(params.id)].heading}
-                {pages[Number(params.id)].about}
-            </div> : <Error404/> }
+            {location.pathname === '/page/0' && <div>SECRET TEXT</div>}
+            {
+                pages[Number(params.id)]
+                    ? <div>
+                        {pages[Number(params.id)].heading}
+                        {pages[Number(params.id)].about}
+                    </div>
+                    : <Error404/>
+                    // : <Navigate to={'/page/Error404'}/>
+                // <Route path={'/*'} element={<Navigate to={'/page/Error404'}/>}/>
+            }
 
         </div>
     );
