@@ -16,3 +16,7 @@ export const Error404 = () => {
     );
 };
 
+// 3 variant of add path /page/Error404
+// 1 - Site - 31-32 row and Page - Navigate
+// 2 - Error - Navigate
+// 3 - UseEffect + useNavigate
